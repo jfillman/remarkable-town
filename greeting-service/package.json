@@ -1,0 +1,61 @@
+{
+  "name": "nodejs-istio-tracing-redhat-greeting",
+  "version": "2.1.1",
+  "author": "Red Hat, Inc.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "tape test/integration/*.js | tap-spec",
+    "lint": "xo",
+    "coverage": "nyc npm test",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "dependencyCheck": "szero . --ci",
+    "start": "node .",
+    "prepublish": "license-reporter report -s",
+    "postinstall": "license-reporter report -s && license-reporter save -s --xml licenses.xml"
+  },
+  "main": "./bin/www",
+  "xo": {
+    "space": 2,
+    "rules": {
+      "space-before-function-paren": [
+        "error",
+        "always"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nodeshift-starters/nodejs-istio-tracing-redhat.git"
+  },
+  "files": [
+    "package.json",
+    "LICENSE",
+    "bin",
+    "lib",
+    "public",
+    "app.js",
+    "licenses"
+  ],
+  "bugs": {
+    "url": "https://github.com/nodeshift-starters/nodejs-istio-tracing-redhat/issues"
+  },
+  "homepage": "https://github.com/nodeshift-starters/nodejs-istion-tracing",
+  "devDependencies": {
+    "nodeshift": "~2.1.1",
+    "nyc": "~14.0.0",
+    "rhoaster": "^0.2.0",
+    "supertest": "^4.0.0",
+    "szero": "^1.0.1",
+    "tap-spec": "~5.0.0",
+    "tape": "~4.10.0",
+    "xo": "~0.24.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "4.16.4",
+    "kube-probe": "~0.3.2",
+    "license-reporter": "^1.2.0",
+    "request": "^2.87.0"
+  }
+}
